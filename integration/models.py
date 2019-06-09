@@ -32,3 +32,38 @@ class IntegrationLines(models.Model):
 
     def __str__(self):
         return "{} - {}".format(self.module_id, self.state)
+
+
+class IntegrationModule(models.Model):
+
+    name = models.CharField(max_length=100)
+    author_id = models.CharField(max_length=100)  #m2o hacia res.partner
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class  IntegrationRepository(models.Model):
+
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class  IntegrationServer(models.Model):
+
+    name =  models.CharField(max_length=100)
+    description =  models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class  IntegrationServerDB(models.Model):
+
+    name =  models.CharField(max_length=100)
+    server_id = models.CharField(max_length=100)
+    description =  models.TextField()
+
+    def __str__(self):
+        return self.name
